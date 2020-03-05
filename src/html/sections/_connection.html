@@ -1,0 +1,70 @@
+<section class="page-section connection" id="contacts">
+  <div class="container">
+    <span class="subtitle">
+      контакты
+    </span>
+    <div class="connection__top">
+      <h2 class="title title--green">
+        связаться с нами
+      </h2>
+      
+     
+    </div>
+    <div class="connection__map mt50">
+      <div class="connection__row">
+        <div class="connection__column connection__column--left">
+          <div class="feedback jsFeedbackState">
+            <div class="feedback-success">
+              Заявка на заключение договора успешно сформирована!<br>
+              Мы свяжемся с Вами в ближайшее время.
+            </div>
+            <div class="feedback-error">
+              Произошла странная ошибка,<br>
+              Попробуйте еще раз <br> или напишите нам на {{ contacts.email }}
+            </div>
+          </div>
+          <form id="jsFeedback">
+            <div class="form">
+              <label class="form__item">
+                <p class="form__name">юридическое лицо</p>
+                <input class="form__input" type="text" name="orgname" placeholder="Введите наименование">
+              </label>
+              <label class="form__item">
+                <p class="form__name">*Ваше имя</p>
+                <input class="form__input" type="text" name="name" placeholder="Введите Ваше имя" required>
+              </label>
+              <label class="form__item">
+                <p class="form__name">*Номер телефона</p>
+                <input class="form__input" type="tel" inputmode="numeric" pattern="[0-9]*" name="phone" placeholder="Введите Ваш номер телефона" required>
+              </label>
+              <label class="form__item">
+                <p class="form__name">*E-mail адрес</p>
+                <input class="form__input" type="text" name="email" placeholder="Введите Ваш e-mail адрес" required>
+              </label>
+              <label class="form__item">
+                <p class="form__name">Cообщение</p>
+                <input class="form__input" type="text" name="message" placeholder="Введите Ваше сообщение">
+              </label>
+              <div class="form__item">
+                <button class="btn btn--green ">свяжитесь со мной</button>
+
+              </div>
+            </div>
+            <p class="confirm">
+              Нажимая на кнопку "Свяжитесь со мной", вы даете согласие на обработку своих
+              персональных данных в соответствии с законом №152-ФЗ «О персональных данных»
+              и соглашаетесь с политикой конфиденциальности.
+            </p>
+          </form>
+        </div>
+        <div class="connection__column connection__column--right">
+          <h3 class="connection__title">
+            Контактная информация
+          </h3>
+          {% from "../mixins/_mixins.html" import address as address %}
+          {{ address(contacts) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

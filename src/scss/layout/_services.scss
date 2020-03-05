@@ -1,0 +1,35 @@
+.services {
+  .services__container {
+    margin-bottom: 100px;
+  }
+}
+.services__text {
+  margin-top: 32px;
+  margin-left: 70px;
+}
+.service {
+  position: relative;
+  .service__number {
+    font-size: 58px;
+    line-height: 22.03px;
+    letter-spacing: 0.58px;
+    font-weight: 100;
+    color: rgba(#000000, .2);
+    position: absolute;
+    top: -18px;
+    left: -12px;
+  }
+  .service__title {
+    display: block;
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+  .service__text {
+    max-width: 280px;
+    margin-bottom: 21px;
+    margin-top: 0;
+    letter-spacing: 0.14px;
+
+    display: none;
+  }
+}

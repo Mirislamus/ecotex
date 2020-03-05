@@ -1,0 +1,156 @@
+<div class="modal overlay">
+  <div class="modal__body">
+    <button type="button" class="modal__close" aria-label="Закрыть модальное окно"></button>
+    <div class="modal__header">
+        <span class="subtitle">
+          Договор
+        </span>
+        <h2 class="title title--green">
+          на вывоз отходов
+        </h2>
+
+    </div>
+    
+    <form id="jsForm">
+      <div class="modal__content">
+        <!-- <p class="modal__text text">
+          Укажите ОГРН или ИНН вашей организации, мы попытаемся найти
+          общедоступную информацию самостоятельно.
+        </p>
+        <input class="form__input" type="text" placeholder="ОГРН или ИНН"> -->
+        <p class="modal__text text">
+          Для быстрой обработки заявки, пожалуйста, заполните <br> недостающие поля
+        </p>
+        <input class="form__input modal__input" type="text" name="main[inn]" placeholder="*ИНН" required>
+        <input class="form__input modal__input" type="text" name="main[orgn]" placeholder="*ОГРН" required>
+        <input class="form__input" type="text" name="main[name]" placeholder="Наименование юридического лица">
+        <input class="form__input" type="text" name="main[address]" placeholder="Юридический адрес">
+        <input class="form__input" type="text" name="main[postal-address]" placeholder="Фактический/почтовый адрес">
+        <input class="form__input modal__input" name="main[phone]" type="text" placeholder="*Телефон/факс" required>
+        <input class="form__input modal__input" name="main[email]" type="text" placeholder="*Email" required>
+        <p class="modal__text text">
+          Коды
+        </p>
+        <input class="form__input modal__input" name="codes[kpp]" type="text" placeholder="КПП">
+        <input class="form__input modal__input" name="codes[okved]" type="text" placeholder="ОКВЭД">
+        <input class="form__input modal__input" name="codes[okato]" type="text" placeholder="ОКАТО">
+        <input class="form__input modal__input" name="codes[okopo]" type="text" placeholder="ОКОПО">
+        <p class="modal__text text">
+          Банковские реквизиты
+        </p>
+        <input class="form__input" type="text" name="bank[account]" placeholder="Расчетный счет">
+        <input class="form__input" type="text" name="bank[name]" placeholder="Наименование банка">
+        <input class="form__input modal__input" name="bank[korr]" type="text" placeholder="Корр счет">
+        <input class="form__input modal__input" name="bank[bik]" type="text" placeholder="БИК">
+        <p class="modal__text text">
+          Руководитель компании
+        </p>
+        <input class="form__input" type="text" name="director[name]" placeholder="ФИО">
+        <input class="form__input modal__input" name="director[position]" type="text" placeholder="Должность">
+        <input class="form__input modal__input" name="director[phone]" type="text" placeholder="Телефон">
+
+        
+        <p class="modal__text text">
+          Прикрепите необходимые документы
+        </p>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[protokol]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Протокол собрания учредителей о назначении руководителя
+          </p>  
+        </label>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[ustav]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Устав компании
+          </p>  
+        </label>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[prikaz]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Приказ о назначении
+          </p>  
+        </label>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[egrul]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Свидетельство о внесении организации в ЕГРЮЛ
+          </p>  
+        </label>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[uchet]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Свидетельство о постановке на учёт
+          </p>  
+        </label>
+        <label class="modal__file">
+          <input class="form__input jsFileUpload" name="files" type="file" data-url="/php/uploader/">
+          <div class="modal__file-progress jsProgress"></div>
+          <input type="hidden" class="jsFileName" placeholder="placeholder" name="file[vypiska]" value="">
+          <div class="modal__file-add"></div>
+          <p class="modal__file-name">
+            Выписка из ЕГРЮЛ
+          </p>  
+        </label>
+        <p class="modal__text text">
+          Выберите типы отходов
+        </p>
+
+        <div class="modal-waste-wrap">
+          <input class="form__input jsSearch" type="text" placeholder="Код или название типа отходов">
+          <div class="modal__dropdown jsDropdown"></div>
+        </div>
+
+        <div class="modal__selected jsChosenWaste"></div>
+
+        <input type="hidden" class="jsWasteInput" name="waste" value="">
+      </div>
+      <div class="modal__success">
+        <p class="success-text" style="display: none;">
+          Спасибо! Наши менеджеры свяжутся <br>
+          с Вами в ближайшее время 
+        </p>
+      </div>
+      <div class="modal__footer">
+        <button class="btn">Отправить</button>
+        <div class="modal__back">
+
+          <div class="modal__file-name jsResultSuccess">
+            <div class="modal__file modal__file--drop">
+              <span class="modal__file-add addfile"></span>
+              <p class="modal__file-name">
+                Заявка на заключение договора успешно отправлена!
+              </p>  
+            </div>
+          </div> 
+
+          <div class="modal__file-name jsResultError">
+            <div class="modal__file modal__file--drop">
+              <span class="modal__file-add addfile"></span>
+              <p class="modal__file-name">
+                Ошибка, попробуйте еще раз или напишите на {{ contacts.email }}
+              </p>  
+            </div>
+          </div> 
+
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</div>

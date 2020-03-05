@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -35px;
+}
+.form__item {
+  flex: 0 0 46%;
+  margin-bottom: 35px;
+}
+.form__name {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.form__input {
+  border: none;
+  background: none;
+  padding: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #acafb1;
+  width: 100%;
+  transition: .3s;
+  appearance: none;
+  &:hover, &:focus {
+    border-bottom-color: $lite-green;
+    outline: none;
+  }
+  &::placeholder {
+    color: #acafb1
+  }
+}
+.confirm {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22px;
+  color: #acafb1;
+  margin-top: 23px;
+  margin-bottom: 0;
+}

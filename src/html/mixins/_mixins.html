@@ -1,0 +1,46 @@
+{% macro tel(string) %}
+  tel:{{ string | replace(" ", "") |  replace("-", "") | replace("(", "") | replace(")", "")}}
+{% endmacro %}
+
+{% macro social(contacts) %}
+    {% if contacts.facebook.length %}
+    <a href="{{ contacts.facebook }}" class="social__item social__item--fb" aria-label="facebook"></a>
+    {% endif %}
+    {% if contacts.vk.length %}
+    <a href="{{ contacts.vk }}" class="social__item social__item--vk" aria-label="vk"></a>
+    {% endif %}
+    {% if contacts.ok.length %}
+    <a href="{{ contacts.ok }}" class="social__item social__item--ok" aria-label="ok"></a>
+    {% endif %}
+    {% if contacts.youtube.length %}
+    <a href="{{ contacts.youtube }}" class="social__item social__item--yt" aria-label="youtube"></a>
+    {% endif %}
+{% endmacro %}
+
+{% macro address(add) %}
+  {% if add.email.length %}
+  <div class="connection__item">
+    <span class="connection__icon connection__icon--email" aria-label="email"></span>
+    {{ add.email }}
+  </div>
+  {% endif %}
+  {% if add.phone.length %}
+  <div class="connection__item">
+    <span class="connection__icon connection__icon--phone" aria-label="phone"></span>
+    {{ add.phone }} 
+    <!-- <br> +7-905-352-90-84 -->
+  </div>
+  {% endif %}
+  {% if add.legalAddress.length %}
+  <div class="connection__item">
+    <span class="connection__icon connection__icon--loc" aria-label="location"></span>
+    {{ add.legalAddress }}
+  </div>
+  {% endif %}
+  {% if add.mailingAddress %}
+  <div class="connection__item">
+    <span class="connection__icon connection__icon--loc" aria-label="location"></span>
+    {{ add.mailingAddress }}
+  </div>
+  {% endif %}
+{% endmacro %}

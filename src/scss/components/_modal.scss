@@ -1,0 +1,199 @@
+.overlay {
+  position: fixed;
+  background-color: rgba(#000000, .5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+  cursor: pointer;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.modal {
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  cursor: default;
+}
+.modal__body {
+  max-width: 584px;
+  background-color: #fff;
+  margin: 50px auto;
+  box-shadow: 5px 9px 43px rgba(73, 73, 73, 0.18);
+  padding: 45px;
+  position: relative;
+}
+.modal__text {
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 100%;
+  color: #000000;
+}
+.modal__content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .form__input {
+    margin-bottom: 20px;
+  }
+}
+.modal__input {
+  max-width: 222px;
+}
+.modal__name {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.modal__file {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #acafb1;
+  margin-bottom: 10px;
+  position: relative;
+
+  &-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: green;
+  }
+
+  &--drop {
+    border-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .jsFileName:not([value='']) {
+    & ~ .modal__file-add {
+      background-color: $lite-green;
+      &::before {
+        background: url(../img/sprite/sprite.svg#icon-check);
+      }
+    }
+  }
+
+  .form__input {
+    display: none;
+  }
+  .modal__file-add {
+    width: 22px;
+    height: 22px;
+    background-color: #9c9c9c;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    border: 0;
+    &:before {
+      content: '';
+      background: url(../img/sprite/sprite.svg#icon-plus);
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: .3s;
+    }
+    &.addfile {
+      background-color: $lite-green;
+        &::before {
+          background: url(../img/sprite/sprite.svg#icon-check);
+        }
+    }
+  }
+  .modal__file-name {
+    color: #000000;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    margin: 0;
+    margin-left: 6px;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+.modal__dropdown {
+  width: 100%;
+  border: 1px solid #9c9c9c;
+  padding: 12px;
+  display: none;
+  background: #fff;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 21px;
+}
+
+.modal-waste-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.modal__selected {
+  margin-top: -5px;
+  width: 100%;
+  .modal__file-add::before {
+    background: url(../img/sprite/sprite.svg#icon-cross);
+  }
+
+}
+
+.jsChooseWaste {
+  span, p {
+    pointer-events: none;
+  }
+}
+
+.modal__success .modal__file-name {
+  font-size: 16px;
+  color: #000;
+}
+.success-text {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  font-weight: 900;
+  color: #000;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+.modal__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal__back {
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  color: #000000;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.modal__close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: url(../img/sprite/sprite.svg#icon-cross-green);
+  cursor: pointer;
+}
+
+.jsResultSuccess, .jsResultError {
+  display: none;
+}

@@ -1,0 +1,6 @@
+{% macro sprite(name) %}
+<svg>
+  <use xlink:href="#{{ name }}">
+</svg>
+{% endmacro %}
+<!-- {{ sprite.sprite('icon-i') }} -->

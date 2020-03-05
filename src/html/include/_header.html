@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>{{ title }}</title>
+	<meta name="description" content="">
+	<meta content="telephone=no" name="format-detection">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Template Basic img Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<!-- Template Basic img End -->
+
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+	<link rel="stylesheet" href="./css/styles.min.css">
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+	{% from "../mixins/_mixins.html" import tel as tel %}
+	{% from "../mixins/_mixins.html" import social as social %}
+	<div class="fixed-nav">
+		<div class="container">
+			<div class="page-header__row row align-items-center">
+				<div class="col-md-3 col-lg-3">
+					<a href="#" class="logo" aria-label="logo">
+						<span class="logo__green">Баш</span>
+						бизнес строй
+					</a>
+				</div>
+				<div class="col-md-9 col-lg-7 ptb5">
+					<nav class="navbar">
+						<button type="button" class="hamburger">
+							<img src="./img/hamburger.svg" alt="hamburger">
+						</button>
+						<div class="nav-menu">
+							<ul class="navbar__list container">
+								<li><a href="#services" class="navbar__item">Услуги</a></li>
+								<li><a href="#conditions" class="navbar__item">Эко сбор и нормы утилизации</a></li>
+								<li><a href="#docs" class="navbar__item">Документы</a></li>
+								<li><a href="#contacts" class="navbar__item">Контакты</a></li>
+								<li><a href="#" class="navbar__item btn-open">Договор</a></li>
+								<li><a href="{{ tel(contacts.phone) }}" class="phone" aria-label="Номер телефона">{{ contacts.phone }}</a></li>
+								<li>
+									<div class="social social--top" aria-label="Социальные сети" role="list">
+										{{ social(contacts) }}
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</nav>
+				</div>
+				<div class="col-md-12 col-lg-2 end align-items-center">
+					<a href="{{ tel(contacts.phone) }}" class="phone" aria-label="Номер телефона">{{ contacts.phone }}</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<header class="page-header" style="background-image: url(./img/bg.jpg);">
+
+
+		<div class="container">
+			<div class="page-header__row row">
+				<div class="col-md-11">
+					<div class="order">
+						<p class="order__subtitle">
+							Утилизация отходов
+						</p>
+						<h1 class="order__title">
+							Избавим ВАС от дополнительных расходов
+						</h1>
+						<p class="order__text">
+							Заключив договор с нами, вы будете избавлены от дополнительных расходов, связанных с платой за загрязнение побочными продуктами вашего производства окружающей среды
+						</p>
+						<button type="button" class="btn btn-open">оформить договор</button>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<div class="social social--top" aria-label="Социальные сети" role="list">
+						{{ social(contacts) }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+  

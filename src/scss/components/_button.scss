@@ -3,12 +3,11 @@
   margin: 0;
   text-decoration: none;
   background: $lite-green;
-  border-radius: 25px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 213px;
-  height: 53px;
+  width: 250px;
+  height: 70px;
   text-transform: uppercase;
   letter-spacing: 0.14px;
   color: #fff;
@@ -16,6 +15,8 @@
   font-weight: 700;
   border: 0;
   cursor: pointer;
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
   &:hover {
     background: $dark-green;
   }
@@ -31,7 +32,7 @@
   border-bottom: 1px solid;
   line-height: 20px;
   transition: .3s;
-  color: $lite-green;
+  color: inherit;
   display: inline-flex;
   &:hover {
     border-bottom-color: transparent;
@@ -41,5 +42,6 @@
   }
   &--white {
     color: #ffffff;
+    display: initial;
   }
 }

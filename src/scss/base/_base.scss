@@ -10,7 +10,7 @@
 
 body {
 	height: 100%;
-	font-family: $font-main, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: $font-size;
 	color: $font-color;
 	&.overflow {
@@ -47,14 +47,18 @@ h1 {
 	font-size: 42px;
 	
 }
-h2 {
-	font-size: 30px;
-	letter-spacing: 0.3px;
-}
-h1, h2 {
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
 	text-transform: uppercase;
-	font-weight: 900;
 }
+h2 {
+	font-size: 36px;
+	letter-spacing: 0.3px;
+	text-transform: none
+}
+
 p {
 	font-size: 16px;
 	line-height: $line-height;
@@ -78,7 +82,7 @@ p {
 	margin-top: 13px;
 	margin-bottom: 13px;
 	&--green {
-		color: $lite-green;
+		color: #202020;
 	}
 }
 .subtitle {

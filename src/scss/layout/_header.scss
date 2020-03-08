@@ -1,6 +1,6 @@
 .page-header {
-  padding-top: 132px;
-  padding-bottom: 104px;
+  padding-top: 220px;
+  padding-bottom: 172px;
   background-color: $green;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,14 +48,16 @@
 }
 .navbar__item, .phone {
   text-transform: uppercase;
-  color: #ffffff;
+  color: #202020;
   text-decoration: none;
   transition: .3s;
   border-bottom: 1px solid transparent;
   letter-spacing: 0.42px;
   line-height: 20px;
+  font-weight: bold;
+  font-size: 18px;
   &:hover {
-    border-bottom-color: #ffffff;
+    border-bottom-color: #202020;
   }
 }
 .phone {
@@ -137,17 +139,17 @@
   }
   .order__title {
     letter-spacing: 0.42px;
-    color: #ffffff;
+    color: #1F1F1F;
     margin-top: 20px;
     margin-bottom: 23px;
     max-width: 600px;
   }
   .order__text {
-   max-width: 490px; 
-   color: #fff;
-   margin-top: 0;
-   margin-bottom: 24px;
-   font-size: 16px;
+    max-width: 590px;
+    color: #1F1F1F;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 18px;
   }
 }
 .hamburger {
@@ -155,8 +157,8 @@
 }
 
 .fixed-nav {
-  min-height: 60px;
-  top: 44px;
+  min-height: 105px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 10;
@@ -166,9 +168,8 @@
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  background: #fff;
   &.fixed {
-    top: 0;
-    background: #184d48;
     border-bottom: 1px solid #449779;
   }
 }

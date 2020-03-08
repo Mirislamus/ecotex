@@ -1,5 +1,5 @@
 .util {
-  background-color: $green;
+  background-color: #fff;
   .btn {
     display: flex;
   }
@@ -34,4 +34,237 @@
 
 .page-section.sutil {
   padding-bottom: 60px;
+}
+.hassle {
+  background: #125A40;
+  padding-top: 100px;
+  padding-bottom: 90px;
+
+}
+.title-line {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 33px;
+  color: #FFFFFF;
+  margin: 0;
+  position: relative;
+
+  margin-bottom: 63px;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    width: 49px;
+    height: 7px;
+    background-color: #AEAEAE;
+  }
+  &--green {
+    &::before {
+      background-color: #125A40;;
+    }
+  }
+}
+.hassle-item {
+  background-color: #fff;
+  height: 196px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 15px;
+  .hassle-img {
+    margin-bottom: 15px;
+    height: 66px;
+  }
+}
+.hassle-text {
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 19px;
+  color: #202020;
+  margin: 0;
+}
+.mx1008 {
+  max-width: 1008px;
+}
+.info-number {
+  margin-bottom: 30px;
+}
+.info-numbers {
+  padding: 120px 0;
+  padding-bottom: 90px;
+}
+
+.info-numbers__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-number__top {
+  width: 215px;
+  height: 124px;
+  background: rgba(18, 90, 64, 0.2);
+  margin-left: 56px;
+  margin-bottom: -71px;
+}
+.info-number__bottom {
+  width: 215px;
+  height: 110px;
+  background: #F0F0F0;
+  text-align: right;
+  font-size: 17px;
+  line-height: 19px;
+  font-weight: bold;
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.info-number__val {
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 55px;
+  color: #1E1E1E;
+  margin: 0;
+}
+.license {
+  background: url(../img/license.jpg) no-repeat center;
+  background-size: cover;
+  padding: 100px 0;
+}
+
+.license__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  a:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+.system {
+  padding-top: 115px;
+  padding-bottom: 90px;
+}
+.title--black {
+  color: initial;
+}
+.system__row {
+  display: flex;
+  flex-wrap: wrap;
+  .title-line {
+    margin-right: 65px;
+  }
+}
+.system-item {
+  padding-right: 85px;
+  max-width: 233px;
+  &:last-child {
+    padding-right: 0;
+
+    .system__top::after {
+      display: none;
+    }
+  }
+
+}
+.system__top {
+  width: 156px;
+  height: 100px;
+  background: #125A40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -65px;
+    background-image: url(../img/arrow.svg);
+    width: 50px;
+    height: 8px;
+  }
+}
+.system__text {
+  font-size: 17px;
+  line-height: 20px;
+  color: #1E1E1E;
+  white-space: nowrap;
+}
+.full-map {
+  position: relative;
+  padding: 0;
+  height: 456px;
+  display: flex;
+  align-items: center;
+}
+.map-full {
+  object-fit: cover;
+  width: 100%;
+  position: absolute;
+  max-height: 456px;
+  top: 0;
+  height: 100%;
+}
+
+.search-us {
+  width: 100%;
+  background-color: #fff;
+  padding: 38px;
+  margin-left: auto;
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  background: url(../img/form.jpg) no-repeat center;
+  background-size: cover;
+  address {
+    font-size: 18px;
+    line-height: 25px;
+    color: #fff;
+    font-style: normal;
+  }
+}
+.search-us__title {
+  font-family: Oswald, sans-serif;
+  font-size: 36px;
+  line-height: 40px;
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.questions {
+  background: linear-gradient(to right, white 50%, #F0F0F0 50%);
+  padding: 90px 0;
+}
+
+.connection__column {
+  box-shadow: unset!important;
+}
+.form__input {
+  font-size: 17px;
+  line-height: 19px;
+  &::placeholder {
+
+    color: #828282;
+  }
+}
+.confirm {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  letter-spacing: 0.02em;
+  color: #828282;
+  a {
+    color: inherit;
+  }
+}
+.mr65 {
+  margin-right: 65px;
+  max-height: 70px;
 }

@@ -6,7 +6,7 @@
   }
   .navbar__item {
     letter-spacing: normal;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .mb100 {
@@ -42,25 +42,33 @@
   .license__column, .license-img{
     margin-top: 30px;
   }
+  .info-number {
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
 }
 @media(max-width: 767px) {
   .page-header {
     padding-top: 100px;
     padding-bottom: 60px;
-    background-size: 100%;
     background-size: cover;
-    background-image: url(../img/bg-mobile.jpg);
+    background-position: center;
     position: relative;
   }
-
+  .btn {
+    height: 55px;
+    width: 220px;
+  }
   .license__item {
     padding-left: 20px;
   }
-
-  .fixed-nav {
-    top: 10px;
+  .logo img {
+    max-width: 150px;
   }
-
+  .fixed-nav {
+    min-height: 75px;
+    border-bottom: $lite-green 1px solid;
+  }
    .phone, .social, .services__text {
     display: none;
   }
@@ -85,14 +93,13 @@
   .navbar {
     .nav-menu {
       padding: 20px 15px;
-      padding-top: 60px;
       transition: .5s;
       position: fixed;
       left: 0;
       right: 0;
-      background-color: $green;
+      background-color: #fff;
       z-index: 1;
-      top: 0;
+      top: 75px;
       will-change: auto;
       visibility: hidden;
       opacity: 0;
@@ -172,10 +179,16 @@
   }
   .link__util {
     text-align: center;
-    max-width: 130px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 180px;
     display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .link--white {
+    max-width: 200px;
+    br {
+      display: none;
+    }
   }
   .util .btn {
     margin-left: auto;
@@ -257,6 +270,7 @@
     margin-top: 0;
   }
   .license {
+    padding-top: 30px!important;
     .btn {
       display: flex;
       margin: 0 auto;
@@ -277,6 +291,69 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .license__row a:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .license {
+    padding: 50px 0;
+  }
+  .page-address {
+    margin-top: 30px;
+  }
+  .telephone {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .title-line {
+    font-size: 26px;
+  }
+  .system-item {
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+
+  }
+  .system__top::after {
+    content: unset;
+  }
+  .system__top {
+    width: 100%;
+  }
+  .search-us {
+    width: 100%;
+    margin: 0;
+  }
+  .full-map {
+    display: block;
+    height: auto;
+    padding-bottom: 0;
+  }
+  .map-full {
+    position: static;
+    height: 300px;
+  }
+  .questions {
+    background: #F0F0F0;
+  }
+  .questions {
+    padding: 30px 0;
+  }
+  .connection__column {
+    padding: 0;
+  }
+  .confirm {
+    margin-top: 33px;
+  }
+  .search-us__title {
+    font-size: 26px;
+  }
+  .system {
+    padding-bottom: 0!important;
+  }
 }
 @media (min-width: 768px) {
   .hamburger {
@@ -290,6 +367,7 @@
       display: none;
     }
   }
+
 }
 @media(max-width: 991px) {
   .end {
@@ -323,7 +401,15 @@
   .util-item {
     margin-left: 0;
   }
-
+  .page__footer-flex {
+    display: block;
+  }
+  .telephone {
+    text-align: left;
+  }
+  .page-footer .navbar__list {
+    margin-left: 0;
+  }
 }
 @media(min-width: 768px) and (max-width: 991px) {
   .logo {
@@ -339,6 +425,46 @@
   }
   .fixed-nav {
     max-height: 63px;
+  }
+  .license__row {
+    a {
+      max-width: 190px;
+    }
+  }
+
+  .link--white {
+    br {
+      display: none;
+    }
+  }
+  .system-item {
+    padding: 0;
+    max-width: 100%;
+    width: 48%;
+  }
+  .system__top::after {
+    content: unset;
+  }
+  .system__top {
+    width: 100%;
+  }
+
+  .system__row {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .full-map {
+    padding: 0!important;
+  }
+  .form__item {
+    flex: 0 0 100%;
+    .btn {
+      margin-left: auto;
+      display: flex;
+    }
+  }
+  .questions {
+    padding: 30px 0;
   }
 }
 @media(max-width: 575px) {
@@ -361,4 +487,36 @@
     max-width: 100%;
   }
 
+}
+@media(min-width: 992px)and(max-width: 1199px) {
+  .license__row a {
+    max-width: 170px;
+  }
+  .form__item {
+    .btn {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+  .questions {
+    padding: 30px 0;
+  }
+  .confirm {
+    text-align: left;
+  }
+  .full-map {
+    padding-bottom: 0!important;
+  }
+  .system-item {
+    width: auto;
+  }
+  .system__row {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .system__top::after {
+    right: -75px;
+  }
+ 
 }

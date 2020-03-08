@@ -3,39 +3,35 @@
 <footer class="page-footer">
   <div class="container">
     <div class="row mb-30">
-      <div class="col-md-12 col-lg-3 mb30 order-0 order-md-0">
+      <div class="col-lg-6 col-xl-2 mb30">
         <a href="#" class="logo" aria-label="logo">
-          <span class="logo__green">Баш</span><br>
-          бизнес строй
+          <img src="../img/logo-bottom.svg" alt="logo">
         </a>
         <small class="copy">
-          2019 &copy; ООО "БашБизнесСтрой" <br>Все права защищены
+          2020 (с) Все права защищены
         </small>
       </div>
-      <div class="col-md-6 col-lg-3 mb30 d-none d-md-block order-2 order-md-0">
+      <div class="col-lg-6 col-xl-3 mb30">
         <ul class="navbar__list navbar__list--column">
-          <li><a href="#services" class="navbar__item">Услуги</a></li>
-          <li><a href="#conditions" class="navbar__item">Экологический сбор <br> и нормы утилизации</a></li>
-          <li><a href="#contacts" class="navbar__item">Контакты</a></li>
-          <li><a href="#" class="navbar__item btn-open">Договор</a></li>
+          <li><a href="#services" class="navbar__item">услуги</a></li>
+          <li><a href="#" class="navbar__item">документы</a></li>
+          <li><a href="#" class="navbar__item">Новости</a></li>
+          <li><a href="#" class="navbar__item btn-open">Контакты</a></li>
+          <li><a href="#" class="navbar__item btn-open">Заявки</a></li>
         </ul>
       </div>
-      <div class="col-md-6 col-lg-3 order-3 order-md-0">
-        <ul class="navbar__list navbar__list--column navbar__list--tdu">
-          <li><span class="navbar__item navbar__item--nounderline">Документы</span></li>
-          <li><a href="{{ docs[0].link }}" class="navbar__item" target="_blank">Лицензия</a></li>
-        </ul>
-      </div>
-      <div class="col-md-12 col-lg-3 mb30 order-1 order-md-0 page__footer-flex">
+      <div class="col-lg-6 col-xl-4 page__footer-flex">
         <address class="page-address">
-          г. Уфа, ул. Цюрупы, <br>
-          д.151, помещение №9
+          Город Уфа, улица такая-то <br>
+          дом такой-то, подьезд оттуда-то
         </address>
-        <div class="phones-column">
-          <a href="{{ tel(contacts.phone) }}" class="phone phone--bottom mb5" aria-label="Номер телефона">{{ contacts.phone }}</a>
-        </div>
-        <div class="social social--bottom" aria-label="Социальные сети" role="list">
-          {{ social(contacts) }}
+        <button class="btn btn--green ">оформить заявку</button>
+      </div>
+      <div class="col-lg-6 col-xl-3">
+        <div class="telephone">
+          <a href="tel:8 (800) 555-14-08">8 (800) 555-14-08</a>
+          <a href="mailto:info@sk-ecoteh.ru">info@sk-ecoteh.ru</a>
+          <span>Звонок по РФ бесплатный</span>
         </div>
       </div>
     </div>

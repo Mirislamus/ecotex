@@ -15,7 +15,7 @@
   display: flex;
 }
 .connection__column {
-  padding: 50px 55px;
+  padding: 0 55px;
   box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.1);
   &--left {
     flex: 0 0 62.5%;
@@ -149,5 +149,12 @@
   .feedback-error {
     opacity: 1;
     pointer-events: all;
+  }
+}
+.title-line {
+  p {
+    font-size: 18px;
+    font-weight: normal;
+    color: #1E1E1E;
   }
 }

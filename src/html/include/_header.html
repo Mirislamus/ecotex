@@ -12,8 +12,8 @@
 	<!-- Template Basic img Start -->
 	<meta property="og:image" content="path/to/image.jpg">
 	<link rel="icon" href="img/favicon/favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=Oswald:700&display=swap&subset=cyrillic" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=cyrillic" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Oswald:500,700&display=swap&subset=cyrillic" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
 	<!-- Template Basic img End -->
 
 	<!-- Custom Browsers Color Start -->
@@ -28,13 +28,12 @@
 	<div class="fixed-nav">
 		<div class="container">
 			<div class="page-header__row row align-items-center">
-				<div class="col-md-3 col-lg-3">
+				<div class="col-md-6">
 					<a href="#" class="logo" aria-label="logo">
-						<span class="logo__green">Баш</span>
-						бизнес строй
+						<img src="./img/logo.svg" alt="logo">
 					</a>
 				</div>
-				<div class="col-md-9 col-lg-7 ptb5">
+				<div class="col-md-6 ptb5">
 					<nav class="navbar">
 						<button type="button" class="hamburger">
 							<img src="./img/hamburger.svg" alt="hamburger">
@@ -42,23 +41,14 @@
 						<div class="nav-menu">
 							<ul class="navbar__list container">
 								<li><a href="#services" class="navbar__item">Услуги</a></li>
-								<li><a href="#conditions" class="navbar__item">Эко сбор и нормы утилизации</a></li>
-								<li><a href="#docs" class="navbar__item">Документы</a></li>
+								<li><a href="#docs" class="navbar__item">Документация</a></li>
+								<li><a href="#news" class="navbar__item">Новости</a></li>
 								<li><a href="#contacts" class="navbar__item">Контакты</a></li>
-								<li><a href="#" class="navbar__item btn-open">Договор</a></li>
-								<li><a href="{{ tel(contacts.phone) }}" class="phone" aria-label="Номер телефона">{{ contacts.phone }}</a></li>
-								<li>
-									<div class="social social--top" aria-label="Социальные сети" role="list">
-										{{ social(contacts) }}
-									</div>
-								</li>
+								<li><a href="#" class="navbar__item btn-open">Заявка</a></li>
 							</ul>
 						</div>
 
 					</nav>
-				</div>
-				<div class="col-md-12 col-lg-2 end align-items-center">
-					<a href="{{ tel(contacts.phone) }}" class="phone" aria-label="Номер телефона">{{ contacts.phone }}</a>
 				</div>
 			</div>
 
@@ -71,14 +61,12 @@
 			<div class="page-header__row row">
 				<div class="col-md-11">
 					<div class="order">
-						<p class="order__subtitle">
-							Утилизация отходов
-						</p>
 						<h1 class="order__title">
-							Избавим ВАС от дополнительных расходов
+							утилизация отходов <br>
+							 1-4 класса опасности
 						</h1>
 						<p class="order__text">
-							Заключив договор с нами, вы будете избавлены от дополнительных расходов, связанных с платой за загрязнение побочными продуктами вашего производства окружающей среды
+							Без усилий и c минимальными затратами снизим риски вашей компании по экологической безопасности. Освободите себя от уплаты экологического сбора на более выгодных условиях
 						</p>
 						<button type="button" class="btn btn-open">оформить договор</button>
 					</div>

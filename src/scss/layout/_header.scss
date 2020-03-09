@@ -1,10 +1,9 @@
 .page-header {
   padding-top: 220px;
   padding-bottom: 172px;
-  background: url(../img/bg.jpg) no-repeat, url(../img/bg-2.jpg) 100% 0% no-repeat;
-  background-size: 78% 100%, 22% 100%;
+  background: url(../img/bg-full.jpg) no-repeat;
   position: relative;
-
+  background-size: cover;
   .page-header__row {
     display: flex;
     align-items: center;

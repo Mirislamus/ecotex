@@ -53,7 +53,7 @@
     margin-right: 30px;
   }
   .page-header {
-    background-size: unset;
+    background: url(../img/bg.jpg) no-repeat;
   }
 }
 @media(max-width: 767px) {
@@ -537,7 +537,7 @@
   }
  
 }
-@media(min-width:1200px)and(max-width: 1365px) {
+@media(min-width:1200px)and(max-width: 1399px) {
   .license__row a:not(:last-child) {
     margin-right:30px;
   }

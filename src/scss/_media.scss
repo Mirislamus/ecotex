@@ -52,6 +52,9 @@
   .license__row a:not(:last-child) {
     margin-right: 30px;
   }
+  .page-header {
+    background-size: unset;
+  }
 }
 @media(max-width: 767px) {
   .page-header {
@@ -363,7 +366,11 @@
   .license__row a:not(:first-child) {
     display: none;
   }
-
+  .search-us__container {
+    max-width: 540px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
 }
 @media (min-width: 768px) {
   .hamburger {
@@ -535,6 +542,6 @@
     margin-right:30px;
   }
   .license__row img {
-    max-width: 200px;
+    max-width: 190px;
   }
 }

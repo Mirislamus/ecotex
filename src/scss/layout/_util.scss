@@ -6,6 +6,7 @@
 }
 .link__util {
   margin-bottom: 22px;
+  display: inline-block;
 }
 .util-item {
   display: flex;
@@ -41,6 +42,7 @@
   padding-bottom: 90px;
 
 }
+
 .title-line {
   font-weight: bold;
   font-size: 36px;
@@ -50,6 +52,7 @@
   position: relative;
   padding-bottom: 28px;
   margin-bottom: 35px;
+
   &::before {
     content: '';
     position: absolute;
@@ -59,12 +62,23 @@
     height: 7px;
     background-color: #AEAEAE;
   }
+
   &--green {
     &::before {
       background-color: #125A40;;
     }
   }
+
+  &--center {
+    text-align: center;
+
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
+
 .hassle-item {
   background-color: #fff;
   height: 196px;
@@ -143,7 +157,7 @@
   flex-wrap: wrap;
   justify-content: center;
   a:not(:last-child) {
-    margin-right: 50px;
+    margin-right: 20px;
   }
 }
 .system {
@@ -200,7 +214,7 @@
 .full-map {
   position: relative;
   padding: 0;
-  height: 456px;
+  height: 600px;
   display: flex;
   align-items: center;
 }
@@ -208,38 +222,16 @@
   object-fit: cover;
   width: 100%;
   position: absolute;
-  max-height: 456px;
+  max-height: 100%;
   top: 0;
   height: 100%;
-}
-
-.search-us {
-  width: 100%;
-  background-color: #fff;
-  padding: 38px;
-  margin-left: auto;
-  margin-top: auto;
-  position: relative;
-  z-index: 2;
-  width: 50%;
-  background: url(../img/form.jpg) no-repeat center;
-  background-size: cover;
-  address {
-    font-size: 18px;
-    line-height: 25px;
-    color: #fff;
-    font-style: normal;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
   }
 }
-.search-us__title {
-  font-family: Oswald, sans-serif;
-  font-size: 36px;
-  line-height: 40px;
-  color: #fff;
-  font-weight: 700;
-  margin: 0;
-  margin-bottom: 20px;
-}
+
 .questions {
   background: linear-gradient(to right, white 50%, #F0F0F0 50%);
   padding: 90px 0;
@@ -259,7 +251,7 @@
 .confirm {
   font-size: 14px;
   line-height: 18px;
-  text-align: right;
+  text-align: left;
   letter-spacing: 0.02em;
   color: #828282;
   a {
@@ -269,4 +261,12 @@
 .mr65 {
   margin-right: 65px;
   max-height: 100px;
+}
+
+.feedback-success, .feedback-error {
+  background-color: #F0F0F0;
+
+  @media (max-width: 767px) {
+    background-color: #FFF;
+  }
 }

@@ -54,7 +54,7 @@ class UploadHandler
             'input_stream' => 'php://input',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
-            'param_name' => 'files',
+            'param_name' => 'file',
             // Set the following option to 'POST', if your server does not support
             // DELETE requests. This is a parameter sent to the client:
             'delete_type' => 'DELETE',
@@ -93,7 +93,7 @@ class UploadHandler
             // is enabled, set to 0 to disable chunked reading of files:
             'readfile_chunk_size' => 10 * 1024 * 1024, // 10 MiB
             // Defines which files can be displayed inline when downloaded:
-            'inline_file_types' => '/\.(gif|jpe?g|png)$/i',
+            'inline_file_types' => '/\.(doc|docx|pdf|rtf|jpe?g|png)$/i',
             // Defines which files (based on their names) are accepted for upload.
             // By default, only allows file uploads with image file extensions.
             // Only change this setting after making sure that any allowed file
@@ -101,7 +101,7 @@ class UploadHandler
             // e.g. PHP scripts, nor executed by the browser when downloaded,
             // e.g. HTML files with embedded JavaScript code.
             // Please also read the SECURITY.md document in this repository.
-            'accept_file_types' => '/\.(gif|jpe?g|png)$/i',
+            'accept_file_types' => '/\.(doc|docx|pdf|rtf|jpe?g|png)$/i',
             // Replaces dots in filenames with the given string.
             // Can be disabled by setting it to false or an empty string.
             // Note that this is a security feature for servers that support

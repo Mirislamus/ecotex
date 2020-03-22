@@ -29,7 +29,13 @@
 }
 .navbar__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  align-items: center;
+
+  li {
+    // margin-left: 30px;  
+  }
+
   &--column {
     display: block;
     li {

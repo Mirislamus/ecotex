@@ -14,6 +14,7 @@
 	<link rel="icon" href="img/favicon/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Oswald:500,700&display=swap&subset=cyrillic" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 	<!-- Template Basic img End -->
 
 	<!-- Custom Browsers Color Start -->
@@ -25,26 +26,30 @@
 <body>
 	{% from "../mixins/_mixins.html" import tel as tel %}
 	{% from "../mixins/_mixins.html" import social as social %}
+
+	{% include "./_order.html" %}
 	<div class="fixed-nav">
 		<div class="container">
 			<div class="page-header__row row align-items-center">
-				<div class="col-md-4 col-xl-6">
+				<div class="col-6 col-md-4">
 					<a href="#" class="logo" aria-label="logo">
 						<img src="./img/logo.svg" alt="logo">
 					</a>
 				</div>
-				<div class="col-md-8 col-xl-6 ptb5">
+				<div class="col-6 col-md-8 ptb5">
 					<nav class="navbar">
 						<button type="button" class="hamburger">
 							<img src="./img/hamburger.svg" alt="hamburger">
 						</button>
 						<div class="nav-menu">
 							<ul class="navbar__list container">
-								<li><a href="#services" class="navbar__item">Услуги</a></li>
-								<li><a href="#docs" class="navbar__item">Документация</a></li>
-								<li><a href="#news" class="navbar__item">Новости</a></li>
-								<li><a href="#contacts" class="navbar__item">Контакты</a></li>
-								<li><a href="#" class="navbar__item btn-open">Заявка</a></li>
+								<li><a href="#services" class="navbar__item jsSelectMenu">Услуги</a></li>
+								<li><a href="#docs" class="navbar__item jsSelectMenu">Документы</a></li>
+								<!-- <li><a href="#news" class="navbar__item jsSelectMenu">Новости</a></li> -->
+								<li><a href="#contacts" class="navbar__item jsSelectMenu">Контакты</a></li>
+								<li>
+									<button type="button" class="btn btn-small jsSelectMenu jsModal">Заключить договор</button>
+								</li>
 							</ul>
 						</div>
 
@@ -60,7 +65,10 @@
 		<div class="container">
 			<div class="page-header__row row">
 				<div class="col-md-11">
-					<div class="order">
+					<div class="order"
+						><p class="order__text">
+							Безопасная
+						</p>
 						<h1 class="order__title">
 							утилизация отходов <br>
 							 1-4 класса опасности
@@ -68,7 +76,7 @@
 						<p class="order__text">
 							Без усилий и c минимальными затратами снизим риски вашей компании по экологической безопасности. Освободите себя от уплаты экологического сбора на более выгодных условиях
 						</p>
-						<button type="button" class="btn btn-open">оформить договор</button>
+						<button type="button" class="btn jsModal">Заключить договор</button>
 					</div>
 				</div>
 				<div class="col-md-1">

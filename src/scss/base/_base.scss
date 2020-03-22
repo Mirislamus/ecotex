@@ -132,3 +132,17 @@ button, input[type=button] {
 		outline: none;
 	}
 }
+
+.text-white {
+	color: #fff;
+
+	a {
+		&, &:visited, &:active {
+			color: #fff;
+		}
+	}
+}
+
+.text-center {
+	text-align: center;
+}

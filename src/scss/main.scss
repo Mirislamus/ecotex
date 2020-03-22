@@ -7,13 +7,14 @@
 @import 'layout/util';
 @import 'layout/eco';
 @import 'layout/connection';
-@import 'layout/license';
-@import 'layout/footer';
-@import 'components/button';
-@import 'components/form';
-@import 'components/modal';
+@import 'layout/license.scss';
+@import 'layout/footer.scss';
+@import 'components/button.scss';
+@import 'components/form.scss';
+@import 'components/modal.scss';
+@import 'components/order.scss';
 
 
 
-@import 'media';
+@import 'media.scss';
 

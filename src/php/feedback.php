@@ -1,6 +1,6 @@
 <?php
     $msg = '';
-    
+
     function check($item) {
         return ( isset($item) && !empty(trim($item)) );
     }
@@ -27,14 +27,13 @@
     }
         
 
-    $to = "3472999084@mail.ru";
+    $to = "test@rensite.ru";
     $subject = "Заказ звонка с сайта";
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
-    $headers .= "From: <robot@bbstroy.ru>\r\n";
+    $headers .= "From: <robot@sk-ecoteh.ru>\r\n";
 
 
     $send = mail($to, $subject, $msg, $headers);
     
-    echo $msg;
-?>
+    exit('OK');

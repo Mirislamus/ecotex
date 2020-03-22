@@ -1,0 +1,356 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.xform {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.xform__header, .xform__footer {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  background: #F7F7FA;
+  padding: 0 3rem;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  justify-content: space-between;
+  bottom: 0;
+  color: #50A874;
+  z-index: 9999;
+}
+
+@media (max-width: 767px) {
+  .xform__header, .xform__footer {
+    padding: 0 1.8rem;
+  }
+}
+
+.xform__header-left, .xform__footer-left {
+  width: 20%;
+}
+
+.xform__header-right, .xform__footer-right {
+  width: 20%;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .xform__header-left, .xform__header-right, .xform__footer-left, .xform__footer-right {
+    width: 35%;
+  }
+}
+
+.xform__header p, .xform__footer p {
+  color: #5284BF;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 767px) {
+  .xform__header p, .xform__footer p {
+    font-size: 1.4rem;
+  }
+}
+
+.xform__header {
+  top: 0;
+  border-bottom: 1px solid rgba(80, 168, 116, 0.2);
+}
+
+.xform__footer {
+  border-top: 1px solid rgba(80, 168, 116, 0.2);
+}
+
+.xform__close {
+  cursor: pointer;
+  width: auto;
+}
+
+.xform__progress {
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: green;
+  transition: width .3s ease;
+}
+
+.xform__content {
+  padding: calc(8rem + 2rem) 3rem;
+  margin: 0;
+  height: 100%;
+  overflow: scroll;
+  min-height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .xform__content {
+    padding: calc(8rem) 1.8rem;
+  }
+}
+
+.xform__text {
+  margin-bottom: 2rem;
+}
+
+.xform__input {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.xform__input input {
+  font-size: 1.6rem;
+  padding: 1rem 2rem 0;
+  line-height: 4rem;
+  border-radius: .5rem;
+  border: 0;
+  color: #2C486A;
+  -webkit-appearance: none;
+  width: 100%;
+  background-color: #F7F7FA;
+  border: 1px solid #D7D9E0;
+}
+
+.xform__input input, .xform__input input:focus {
+  outline: none;
+}
+
+.xform__input label {
+  position: absolute;
+  left: 2rem;
+  top: 1.5rem;
+  font-size: 1.6rem;
+  color: rgba(85, 85, 85, 0.7);
+  transition: all .3s ease;
+  font-weight: light;
+  pointer-events: none;
+}
+
+.xform__input label.active {
+  transform: translateY(0);
+  font-size: 1.2rem;
+  top: .5rem;
+}
+
+.xform__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.xform__row .xform__input {
+  flex: 1;
+  max-width: calc(50% - .5rem);
+  width: calc(50% - .5rem);
+}
+
+.xform__dropdown {
+  top: 6rem;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #555;
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.xform__results {
+  top: 6rem;
+  padding: 0;
+}
+
+.xform__file {
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 2rem 3rem;
+  transition: background-color .3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 767px) {
+  .xform__file {
+    padding: 2rem .5rem;
+  }
+}
+
+.xform__file-progress {
+  width: 0;
+  background-color: green;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.xform__file-progress.is-error {
+  background-color: red;
+}
+
+.xform__file i {
+  margin-right: 1rem;
+  opacity: .4;
+  transition: opacity .3s ease;
+}
+
+.xform__file input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.xform__file:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.xform__file:hover i {
+  opacity: 1;
+}
+
+.xform-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.xform-content--top {
+  justify-content: flex-start;
+}
+
+.xform-fieldset {
+  max-width: 30rem;
+  width: 100%;
+}
+
+.xform-fieldset--wide {
+  max-width: 90rem;
+}
+
+.xoverlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #F7F7FA;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xbtn {
+  box-sizing: border-box;
+  border-radius: 1.5rem 0 1.5rem 0;
+  padding: 1rem 2rem;
+  background-color: #50A874;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px #fff;
+}
+
+.xbtn span + i {
+  margin-left: 1rem;
+}
+
+.xbtn i + span {
+  margin-left: 1rem;
+}
+
+.xbtn, .xbtn:focus {
+  outline: 0;
+}
+
+.xbtn:hover {
+  background-color: #5fb381;
+}
+
+.xbtn:active {
+  background-color: #489768;
+}
+
+.xbtn:disabled {
+  cursor: not-allowed;
+  background-color: #7c7c7c;
+}
+
+.xform-content {
+  height: 100%;
+}
+
+.modal__dropdown {
+  display: block;
+}
+
+.modal__file .form__input {
+  display: block;
+  position: absolute;
+  opacity: 0;
+}
+
+.is-error + .modal__file-progress {
+  background-color: red;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .2s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  opacity: 0;
+}
+
+.modal {
+  z-index: 9999;
+}
+
+.modal__body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.modal__body {
+  padding: 0 !important;
+}
+
+.modal__body > div {
+  height: 100%;
+  min-height: 100vh;
+}

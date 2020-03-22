@@ -1,45 +1,51 @@
 {% from "../mixins/_mixins.html" import tel as tel %}
 {% from "../mixins/_mixins.html" import social as social %}
-<footer class="page-footer">
+<footer class="page-footer footer">
   <div class="container">
-    <div class="row mb-30">
-      <div class="col-lg-6 col-xl-2 col-md-6 mb30">
-        <a href="#" class="logo" aria-label="logo">
-          <img src="../img/logo-bottom.svg" alt="logo">
-        </a>
-        <small class="copy">
-          2020 (с) Все права защищены
-        </small>
+    <div class="d-flex w100 footer__row">
+      <div class="footer__half">
+        <div class="footer__col first">
+          <a href="#" class="logo" aria-label="logo">
+            <img src="../img/logo-bottom.svg" alt="logo">
+          </a>
+          <small class="copy">
+            2019-2020 (с) ООО СК «Экотех» <br>
+            ОГРН 1167746124930 <br>
+            Все права защищены
+          </small>
+        </div>
+        <div class="footer__col d-none d-lg-flex">
+          <ul class="navbar__list navbar__list--column">
+            <li><a href="#services" class="navbar__item">услуги</a></li>
+            <li><a href="#docs" class="navbar__item">документы</a></li>
+            <!-- <li><a href="#" class="navbar__item">Новости</a></li> -->
+            <li><a href="#contacts" class="navbar__item">Контакты</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="col-lg-6 col-xl-3 col-md-6 mb30">
-        <ul class="navbar__list navbar__list--column">
-          <li><a href="#services" class="navbar__item">услуги</a></li>
-          <li><a href="#" class="navbar__item">документы</a></li>
-          <li><a href="#" class="navbar__item">Новости</a></li>
-          <li><a href="#" class="navbar__item btn-open">Контакты</a></li>
-          <li><a href="#" class="navbar__item btn-open">Заявки</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-6 col-xl-4 col-md-6 page__footer-flex">
-        <address class="page-address">
-          Город Уфа, улица такая-то <br>
-          дом такой-то, подьезд оттуда-то
-        </address>
-        <button class="btn btn--green ">оформить заявку</button>
-      </div>
-      <div class="col-lg-6 col-xl-3 col-md-6">
-        <div class="telephone">
-          <a href="tel:8 (800) 555-14-08">8 (800) 555-14-08</a>
-          <a href="mailto:info@sk-ecoteh.ru">info@sk-ecoteh.ru</a>
-          <span>Звонок по РФ бесплатный</span>
+      <div class="footer__half">
+        <div class="footer__col">
+          <address class="page-address">
+            450078, г. Уфа, <br>
+            ул. Владивостокская, 12 <br>
+          </address>
+          <button class="btn btn-small btn--green">Заключить договор</button>
+        </div>
+        <div class="footer__col last">
+          <div class="telephone">
+            <a href="tel:8 (800) 555-14-08">8 (800) 555-14-08</a>
+            <a href="mailto:info@sk-ecoteh.ru">info@sk-ecoteh.ru</a>
+            <span>Звонок по РФ бесплатный</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </footer>
-{% include "./_modal.html" %}
+
 <div class="overlay overlay-js"></div>
 <script src="./js/scripts.min.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/vue.min.js"></script>
 </body>
 </html>

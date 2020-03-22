@@ -89,6 +89,19 @@ const scripts = done => {
 	done();
 };
 
+const vueScripts = done => {
+	const jsFiles = [
+		'./vue/vue.js',
+		'./vue/axios.min.js',
+		'./vue/app.js'
+	];
+	gulp.src(jsFiles)
+	.pipe(concat('vue.min.js'))
+	.pipe(gulp.dest('./build/js'))
+	.pipe(browserSync.stream());
+	done();
+};
+
 const styles = done => {
 	gulp.src('./src/styles/styles.scss')
 	.pipe(plumber())
@@ -143,6 +156,17 @@ const images = done => {
 	done();
 };
 
+
+const json = done => {
+	const jsonSrc = [
+		'./src/json/**/*'
+	];
+	gulp.src(jsonSrc)
+	.pipe(gulp.dest('./build/json'))
+	.pipe(browserSync.stream());
+	done();
+};
+
 const sprite = done => {
 	gulp.src('./src/img/sprite/**/icon-*.svg', )
 	.pipe(svgSprite({
@@ -176,6 +200,7 @@ const watching = () => {
 	gulp.watch('./src/scss/**/*.scss', scss);
 	gulp.watch('./src/scripts/**/*.js', scripts);
 	gulp.watch('./src/js/common.js', commonJs);
+	gulp.watch('./src/vue/app.js', vueScripts);
 	gulp.watch('./src/img/sprite/**/icon-*.svg', sprite);
 	gulp.watch('./src/img/**/*', images).on('change', browserSync.reload);
 	gulp.watch('./src/html/**/*.html', html).on('change', browserSync.reload);
@@ -208,5 +233,5 @@ gulp.task('watch', watching);
 gulp.task('clean', clean);
 
 
-gulp.task('build', gulp.series(clean, gulp.parallel(html, files, php, fonts, es, images, scripts, commonJs, styles, scss, sprite)));
-gulp.task('default', gulp.series(gulp.parallel(html, fonts, php, es, images, scripts, commonJs, styles, scss, sprite), watching));
+gulp.task('build', gulp.series(clean, gulp.parallel(html, files, php, fonts, es, images, scripts, vueScripts, json, commonJs, styles, scss, sprite)));
+gulp.task('default', gulp.series(gulp.parallel(html, fonts, php, es, images, scripts, vueScripts, commonJs, json, styles, scss, sprite), watching));

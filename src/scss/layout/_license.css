@@ -1,0 +1,22 @@
+.license__item {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.license__img {
+  flex-shrink: 0;
+  margin-right: 28px;
+  width: 36px;
+  height: 48px;
+}
+
+.license__text {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+  margin: 0;
+}

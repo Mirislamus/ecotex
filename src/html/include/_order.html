@@ -1,0 +1,335 @@
+<div class="modal overlay">
+    <div class="modal__body">
+<div id="app">
+    <div class="xform" v-cloak>
+        <div class="xform__header">
+          <div class="xform__header-left"></div>
+          <p>Заявка на вывоз отходов</p>
+          <div class="xform__header-right">
+            <span class="xform__close jsModalClose" type="button" aria-label="Закрыть модальное окно"><i class="fas fa-times"></i></span>
+          </div>
+        </div>
+        <form class="xform__content" @submit.prevent>
+          <transition name="slide-fade" mode="out-in">
+            <div class="xform-content" v-if="xform.step === 1" key="1">
+              <p class="xform__text">Пожалуйста, укажите ИИН вашей организации</p>
+              <div class="xform-fieldset">
+                <div class="xform__input">
+                  <input type="text" name="main[inn]" v-model="form.main.inn" required="">
+                  <label :class="{active: form.main.inn.length}">ИНН</label>
+                </div>
+              </div>
+            </div>
+      
+            <div class="xform-content" v-else-if="xform.step === 2" key="2">
+              <p class="xform__text">
+                <span v-show="fetched">Мы заполнили некоторые данные за вас.</span><br>
+                <span>Пожалуйста, проверьте их и заполните недостающие.</span>
+              </p>
+              
+              <div class="xform-fieldset xform-fieldset--wide">
+                <div class="xform__input">
+                  <input type="text" name="main[inn]" v-model="form.main.inn" required="">
+                  <label :class="{active: form.main.inn.length}">ИНН</label>
+                </div>
+                
+                <div class="xform__input">
+                  <input type="text" name="main[name]" v-model="form.main.name" required="">
+                  <label :class="{active: form.main.name.length}">Наименование юридического лица</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="main[address]" v-model="form.main.address" required="">
+                  <label :class="{active: form.main.address.length}">Юридический адрес</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="main[postalAddress]" v-model="form.main.postalAddress" required="">
+                  <label :class="{active: form.main.postalAddress.length}">Фактический/почтовый адрес</label>
+                </div>
+  
+                <div class="xform__row">
+                  <div class="xform__input">
+                    <input type="text" name="main[phone]" v-model="form.main.phone" required="">
+                    <label :class="{active: form.main.phone.length}">Телефон/факс</label>
+                  </div>
+                  <div class="xform__input">
+                    <input type="text" name="main[email]" v-model="form.main.email" required="">
+                    <label :class="{active: form.main.email.length}">Email</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="xform-content" v-else-if="xform.step === 3" key="3">
+              <p class="xform__text">Коды</p>
+  
+              <div class="xform-fieldset">
+                <div class="xform__input">
+                  <input type="text" name="codes[ogrn]" v-model="form.codes.ogrn" required="">
+                  <label :class="{active: form.codes.ogrn.length}">ОГРН</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="codes[kpp]" v-model="form.codes.kpp" required="">
+                  <label :class="{active: form.codes.kpp.length}">КПП</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="codes[okved]" v-model="form.codes.okved" required="">
+                  <label :class="{active: form.codes.okved.length}">ОКВЭД</label>
+                </div>
+              </div>
+            </div>
+  
+            <div class="xform-content" v-else-if="xform.step === 4" key="4">
+              <p class="xform__text">Банковские реквизиты</p>
+  
+              <div class="xform-fieldset xform-fieldset--wide">
+                <div class="xform__input">
+                  <input type="text" name="bank[account]" v-model="form.bank.account" required="">
+                  <label :class="{active: form.bank.account.length}">Расчетный счет</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="bank[name]" v-model="form.bank.name" required="">
+                  <label :class="{active: form.bank.name.length}">Наименование банка</label>
+                </div>
+  
+                <div class="xform__row">
+  
+                  <div class="xform__input">
+                    <input type="text" name="bank[korr]" v-model="form.bank.korr" required="">
+                    <label :class="{active: form.bank.korr.length}">Корр счет</label>
+                  </div>
+  
+                  <div class="xform__input">
+                    <input type="text" name="bank[bik]" v-model="form.bank.bik" required="">
+                    <label :class="{active: form.bank.bik.length}">БИК</label>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+  
+            <div class="xform-content xform-content--top" v-else-if="xform.step === 5" key="5">
+              <p class="xform__text">Выберите типы отходов</p>
+  
+              <div class="xform-fieldset xform-fieldset--wide">
+                <div class="modal-waste-wrap">
+                  <div class="xform__input">
+                    <input type="text"  @blur="selectWaste()" v-model="wasteQuery" required="">
+                    <label :class="{active: wasteQuery}">Код или название типа отходов</label>
+                  </div>
+                  <div class="xform__dropdown" v-show="wasteQuery.length">
+                    <div v-if="wastes.length > 0">
+                      <div class="xform__file" @click="selectWaste(item)" v-for="item in wastes">
+                        <i class="fas fa-plus"></i>
+                        <div>(${item.code}) ${item.name}</div>
+                      </div>
+                    </div>
+                    <div v-else>
+                      <div class="xform__file">
+                        <div>По запросу ничего не найдено</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="xform__results">
+                  <div class="xform__file"  @click="removeWaste(index)" v-for="item, index in form.wastes" :key="item">
+                    <i class="far fa-trash-alt"></i>
+                    <div>${item}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="xform-content" v-else-if="xform.step === 6" key="6">
+              <p class="xform__text">Прикрепите необходимые документы</p>
+  
+              <div class="xform-fieldset xform-fieldset--wide">
+                <label class="xform__file" v-for="item in filesContent" :key="item.name">
+                  <input name="file" type="file" @change="uploadFile(item.name)" accept=".doc,.docx,.otd,.pdf,.rtf,.jpg">
+                  <i class="far fa-file-alt"></i>
+                  <div>${item.text}</div>
+                  <div class="xform__file-progress" :ref="item.name" :style="{ width: files[item.name] + '%'}"></div>
+                </label>
+              </div>
+  
+            </div>
+  
+            <div class="xform-content xform-content--top" v-else-if="xform.step === 7" key="7">
+              <p class="xform__text">Финальный шаг. Пожалуйста, проверьте данные.</p>
+  
+  
+              <p class="xform__text">О компании</p>
+  
+              <div class="xform__input">
+                <input type="text" name="main[inn]" v-model="form.main.inn" required="">
+                <label :class="{active: form.main.inn.length}">ИНН</label>
+              </div>
+              
+              <div class="xform__input">
+                <input type="text" name="main[name]" v-model="form.main.name" required="">
+                <label :class="{active: form.main.name.length}">Наименование юридического лица</label>
+              </div>
+  
+              <div class="xform__input">
+                <input type="text" name="main[address]" v-model="form.main.address" required="">
+                <label :class="{active: form.main.address.length}">Юридический адрес</label>
+              </div>
+  
+              <div class="xform__input">
+                <input type="text" name="main[postalAddress]" v-model="form.main.postalAddress" required="">
+                <label :class="{active: form.main.postalAddress.length}">Фактический/почтовый адрес</label>
+              </div>
+  
+              <div class="xform__row">
+                <div class="xform__input">
+                  <input type="text" name="main[phone]" v-model="form.main.phone" required="">
+                  <label :class="{active: form.main.phone.length}">Телефон/факс</label>
+                </div>
+                <div class="xform__input">
+                  <input type="text" name="main[email]" v-model="form.main.email" required="">
+                  <label :class="{active: form.main.email.length}">Email</label>
+                </div>
+              </div>
+  
+              <p class="xform__text">Коды</p>
+  
+              <div class="xform__input">
+                <input type="text" name="codes[ogrn]" v-model="form.codes.ogrn" required="">
+                <label :class="{active: form.codes.ogrn.length}">ОГРН</label>
+              </div>
+  
+              <div class="xform__input">
+                <input type="text" name="codes[kpp]" v-model="form.codes.kpp" required="">
+                <label :class="{active: form.codes.kpp.length}">КПП</label>
+              </div>
+  
+              <div class="xform__input">
+                <input type="text" name="codes[okved]" v-model="form.codes.okved" required="">
+                <label :class="{active: form.codes.okved.length}">ОКВЭД</label>
+              </div>
+              
+              <p class="xform__text">Банковские реквизиты</p>
+  
+              <div class="xform__input">
+                <input type="text" name="bank[account]" v-model="form.bank.account" required="">
+                <label :class="{active: form.bank.account.length}">Расчетный счет</label>
+              </div>
+  
+              <div class="xform__input">
+                <input type="text" name="bank[name]" v-model="form.bank.name" required="">
+                <label :class="{active: form.bank.name.length}">Наименование банка</label>
+              </div>
+  
+              <div class="xform__row">
+  
+                <div class="xform__input">
+                  <input type="text" name="bank[korr]" v-model="form.bank.korr" required="">
+                  <label :class="{active: form.bank.korr.length}">Корр счет</label>
+                </div>
+  
+                <div class="xform__input">
+                  <input type="text" name="bank[bik]" v-model="form.bank.bik" required="">
+                  <label :class="{active: form.bank.bik.length}">БИК</label>
+                </div>
+  
+              </div>
+  
+              <p class="xform__text">Выбранные типы отходов</p>
+  
+              <div class="xform__results">
+                <div class="xform__file"  @click="removeWaste(index)" v-for="item, index in form.wastes" :key="item">
+                  <i class="far fa-trash-alt"></i>
+                  <div>${item}</div>
+                </div>
+              </div>
+  
+              <p class="xform__text">Прикрепленные документы</p>
+  
+              <div class="xform-fieldset xform-fieldset--wide">
+                <label class="xform__file" v-for="item in filesContent" v-if="form.file[item.name]" :key="item.name">
+                  <i class="far fa-file-alt"></i>
+                  <div>${item.text}</div>
+                  <div class="xform__file-progress" :ref="item.name" :style="{ width: files[item.name] + '%'}"></div>
+                </label>
+              </div>
+              <br><br><br><br>
+  
+            </div>
+
+            <div class="xform-content xform-content--top" v-else key="8">
+                <p class="xform__text">Ваша заявка будет обработана в ближайшее время.</p>
+
+            </div>
+          </transition>
+          
+        </form>
+        <div class="xform__footer" v-show="xform.step !== 8">
+          <div class="xform__progress" :style="{ width: ((xform.step - 1) * (100 / (maxStep - 1) )) + '%'}"></div>
+  
+          <div class="xform__footer-left">
+            <button class="xbtn" @click="nextStep(-1)" v-show="(xform.step > 1)" :disabled="!validate">
+              <i class="fas fa-angle-double-left"></i>
+              <span>Назад</span>
+            </button>
+          </div>
+  
+          <p class="">Шаг ${xform.step} / ${maxStep}</p>
+  
+          <div class="xform__footer-right">
+            <button class="xbtn" @click="nextStep()" v-show="((xform.step < maxStep) && (xform.step !== 7))" :disabled="!validate">
+              <span>Далее</span>
+              <i class="fas fa-angle-double-right"></i>
+            </button>
+
+            <button class="xbtn jsAutoClose" @click="sendData()" v-show="xform.step === 7">
+                <span>Отправить</span>
+                <i class="far fa-check-circle"></i>
+              </button>
+          </div>
+          
+        </div>
+    </div>
+  
+    <transition name="fade">
+      <div class="xoverlay" v-show="loading">
+        <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+              <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
+                  <stop stop-color="#16a085" stop-opacity="0" offset="0%"/>
+                  <stop stop-color="#16a085" stop-opacity=".631" offset="63.146%"/>
+                  <stop stop-color="#16a085" offset="100%"/>
+              </linearGradient>
+          </defs>
+          <g fill="none" fill-rule="evenodd">
+              <g transform="translate(1 1)">
+                  <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" stroke-width="2">
+                      <animateTransform
+                          attributeName="transform"
+                          type="rotate"
+                          from="0 18 18"
+                          to="360 18 18"
+                          dur="0.9s"
+                          repeatCount="indefinite" />
+                  </path>
+                  <circle fill="#fff" cx="36" cy="18" r="1">
+                      <animateTransform
+                          attributeName="transform"
+                          type="rotate"
+                          from="0 18 18"
+                          to="360 18 18"
+                          dur="0.9s"
+                          repeatCount="indefinite" />
+                  </circle>
+              </g>
+          </g>
+        </svg>
+      </div>
+    </transition>
+  </div>
+  </div>
+  </div>
